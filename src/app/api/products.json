@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Isntree serum",
+    "description": "Hydrating face serum",
+    "price": 200,
+    "discountPercentage": 12.96,
+    "rating": 4.69,
+    "stock": 94,
+    "brand": "Isntree",
+    "category": "serum",
+    "image": "src/assets/face-serum.avif"
+  },
+  {
+    "id": 1,
+    "title": "Isntree cream",
+    "description": "Hydrating gel cream",
+    "price": 150,
+    "discountPercentage": 12.96,
+    "rating": 4.7,
+    "stock": 121,
+    "brand": "Isntree",
+    "category": "cream",
+    "image": "src/assets/face-serum.avif"
+  },
+  {
+    "id": 1,
+    "title": "Isntree eye cream",
+    "description": "Eye cream with retinol",
+    "price": 100,
+    "discountPercentage": 12.96,
+    "rating": 4.69,
+    "stock": 14,
+    "brand": "Isntree",
+    "category": "serum",
+    "image": "src/assets/face-serum.avif"
+  }
+]

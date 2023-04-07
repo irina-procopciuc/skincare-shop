@@ -1,1 +1,76 @@
-<p>home works!</p>
+<section
+  class="banner flex flex-column justify-content-center align-items-center mt-2"
+  [ngStyle]="{
+    backgroundColor: 'var(--pink-200)',
+    color: 'white',
+    borderRadius: 'var(--border-radius)'
+  }"
+>
+  <h1>Discover your perfect skincare routine</h1>
+  <p>Shop our wide selection of high-quality skincare products.</p>
+</section>
+
+<section class="featured">
+  <h2>Featured Products</h2>
+  <div class="flex flex-row flex-wrap card-container blue-container">
+    <div *ngFor="let product of featuredProductsList" class="m-2">
+      <p-card header="{{ product.title }}" [style]="{ width: '290px' }">
+        <ng-template pTemplate="header">
+          <img alt="Card" src={{product.image}} />
+        </ng-template>
+        <p>
+          {{ product.description }}
+        </p>
+        <ng-template pTemplate="footer">
+          <p-button
+            label="Details"
+            icon="pi pi-eye"
+            styleClass="p-button-help"
+          ></p-button>
+          <p-button
+            label="Add to cart"
+            icon="pi pi-plus"
+            [style]="{ 'margin-left': '.5em' }"
+          ></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</section>
+<!-- to do -->
+<section class="promotions">
+  <h2>Special Promotions</h2>
+  <div class="promotion-list">
+    <div class="promotion-item">
+      <img src="promotion-image-1.jpg" alt="Promotion Image" />
+      <h3>Promotion Name</h3>
+      <p>Promotion Description</p>
+      <button class="btn">Shop Now</button>
+    </div>
+    <div class="promotion-item">
+      <img src="promotion-image-2.jpg" alt="Promotion Image" />
+      <h3>Promotion Name</h3>
+      <p>Promotion Description</p>
+      <button class="btn">Shop Now</button>
+    </div>
+    <div class="promotion-item">
+      <img src="promotion-image-3.jpg" alt="Promotion Image" />
+      <h3>Promotion Name</h3>
+      <p>Promotion Description</p>
+      <button class="btn">Shop Now</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa"></a>
+  </div>
+</footer>
