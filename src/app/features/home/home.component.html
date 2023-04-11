@@ -16,7 +16,7 @@
     <div *ngFor="let product of featuredProductsList" class="m-2">
       <p-card header="{{ product.title }}" [style]="{ width: '290px' }">
         <ng-template pTemplate="header">
-          <img alt="Card" src={{product.image}} />
+          <img alt="Card" src="../../../assets/face-serum.avif" />
         </ng-template>
         <p>
           {{ product.description }}
@@ -40,35 +40,29 @@
 <!-- to do -->
 <section class="promotions">
   <h2>Special Promotions</h2>
-  <div class="promotion-list">
-    <div class="promotion-item">
-      <img src="promotion-image-1.jpg" alt="Promotion Image" />
-      <h3>Promotion Name</h3>
-      <p>Promotion Description</p>
-      <button class="btn">Shop Now</button>
-    </div>
-    <div class="promotion-item">
-      <img src="promotion-image-2.jpg" alt="Promotion Image" />
-      <h3>Promotion Name</h3>
-      <p>Promotion Description</p>
-      <button class="btn">Shop Now</button>
-    </div>
-    <div class="promotion-item">
-      <img src="promotion-image-3.jpg" alt="Promotion Image" />
-      <h3>Promotion Name</h3>
-      <p>Promotion Description</p>
-      <button class="btn">Shop Now</button>
+  <div class="promotion-list flex">
+    <div *ngFor="let promotion of activePromotions" class="promotion-item">
+      <img src="../../../assets/promotions.png" alt="Promotion Image" />
+      <h3>{{ promotion.name }}</h3>
+      <p>{{ promotion.description }}</p>
+      <p-button class="btn" [routerLink]="'/products'">Shop Now</p-button>
     </div>
   </div>
 </section>
 
-<footer>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>
+<footer
+  [ngStyle]="{
+    backgroundColor: 'var(--pink-200)',
+    color: 'white',
+    borderRadius: 'var(--border-radius)'
+  }"
+>
+  <div class="flex flex-column justify-content-center align-items-center mt-2">
+    <span [routerLink]="'/home'" class="m-1">Home</span>
+    <span [routerLink]="'/products'" class="m-1">Shop</span>
+    <span class="m-1">About Us</span>
+    <span class="m-1">Contact Us</span>
+  </div>
   <div class="social-links">
     <a href="#" class="fa fa-facebook"></a>
     <a href="#" class="fa fa"></a>

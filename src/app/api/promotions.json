@@ -1,0 +1,17 @@
+[
+  {
+    "name": "New Promotion available",
+    "description": "20% discount for all eye creams",
+    "isActive": true
+  },
+  {
+    "name": "Free dilevilery",
+    "description": "Free delivery for orders over $50",
+    "isActive": true
+  },
+  {
+    "name": "Free dilevilery 2",
+    "description": "Free delivery for orders over $50",
+    "isActive": false
+  }
+]
