@@ -1,0 +1,11 @@
+:host{
+  .form-field {
+    label {
+      width: 200px;
+    }
+
+    input, p-dropdown, div {
+      width: 100%;
+    }
+  }
+}

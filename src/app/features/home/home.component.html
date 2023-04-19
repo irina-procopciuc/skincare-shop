@@ -14,7 +14,7 @@
   <h2>Featured Products</h2>
   <div class="flex flex-row flex-wrap card-container blue-container">
     <div *ngFor="let product of featuredProductsList" class="m-2">
-      <p-card header="{{ product.title }}" [style]="{ width: '290px' }">
+      <p-card header="{{product.brand + ' ' + product.title }}" [style]="{ width: '290px' }">
         <ng-template pTemplate="header">
           <img alt="Card" src="../../../assets/face-serum.avif" />
         </ng-template>
@@ -22,7 +22,8 @@
           {{ product.description }}
         </p>
         <ng-template pTemplate="footer">
-          <p-button
+          <div class="flex">
+            <p-button
             label="Details"
             icon="pi pi-eye"
             styleClass="p-button-help"
@@ -32,6 +33,7 @@
             icon="pi pi-plus"
             [style]="{ 'margin-left': '.5em' }"
           ></p-button>
+          </div>
         </ng-template>
       </p-card>
     </div>

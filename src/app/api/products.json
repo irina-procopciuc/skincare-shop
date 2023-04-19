@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Isntree serum",
+    "title": "HA serum",
     "description": "Hydrating face serum",
     "price": 200,
     "discountPercentage": 12.96,
@@ -12,8 +12,8 @@
     "image": "src/assets/face-serum.avif"
   },
   {
-    "id": 1,
-    "title": "Isntree cream",
+    "id": 2,
+    "title": "Aqua gel cream",
     "description": "Hydrating gel cream",
     "price": 150,
     "discountPercentage": 12.96,
@@ -24,8 +24,8 @@
     "image": "src/assets/face-serum.avif"
   },
   {
-    "id": 1,
-    "title": "Isntree eye cream",
+    "id": 3,
+    "title": "Eye cream",
     "description": "Eye cream with retinol",
     "price": 100,
     "discountPercentage": 12.96,
@@ -33,6 +33,30 @@
     "stock": 14,
     "brand": "Isntree",
     "category": "serum",
+    "image": "src/assets/face-serum.avif"
+  },
+  {
+    "id": 3,
+    "title": "Makeup remover",
+    "description": "Radiance cleansing balm",
+    "price": 85,
+    "discountPercentage": 0,
+    "rating": 5,
+    "stock": 18,
+    "brand": "Beauty of Joseon",
+    "category": "makeup remover",
+    "image": "src/assets/face-serum.avif"
+  },
+  {
+    "id": 3,
+    "title": "Toner",
+    "description": "Hydrating mist",
+    "price": 45,
+    "discountPercentage": 0,
+    "rating": 4.5,
+    "stock": 70,
+    "brand": "Beauty of Joseon",
+    "category": "toner",
     "image": "src/assets/face-serum.avif"
   }
 ]

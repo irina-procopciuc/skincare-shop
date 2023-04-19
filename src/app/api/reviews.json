@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Aqua gel cream",
+    "brand": "Isntree",
+    "rating": 4,
+    "description": "Best hydrating face cream",
+    "price": 45,
+    "status": "INSTOCK"
+  },
+  {
+    "id": 2,
+    "name": "Eye cream",
+    "brand": "Isntree",
+    "rating": 4.5,
+    "description": "Best hydrating eye cream",
+    "price": 78,
+    "status": "LOWSTOCK"
+  },
+  {
+    "id": 3,
+    "name": "Toner",
+    "brand": "Beauty of Joseon",
+    "rating": 4.7,
+    "description": "Best hydrating toner",
+    "price": 47,
+    "status": "OUTOFSTOCK"
+  }
+]

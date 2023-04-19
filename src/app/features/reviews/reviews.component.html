@@ -1,1 +1,82 @@
-<p>reviews works!</p>
+<div class="mt-2">
+  <p-table
+    [value]="reviews"
+    [breakpoint]="'960px'"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    responsiveLayout="stack"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Reviews</th>
+        <th>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-plus"
+            class="p-button-rounded p-button-primary"
+            (click)="addReview()"
+          >
+            <span class="ml-2"> New review</span>
+          </button>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-review let-columns="columns">
+      <tr>
+        <td>
+          <span class="p-column-title">Name</span
+          >{{ review.brand + " " + review.name }}
+        </td>
+        <td><span class="p-column-title">Rating</span>{{ review.rating }}</td>
+        <td>
+          <span class="p-column-title">Description</span
+          >{{ review.description }}
+        </td>
+        <td><span class="p-column-title">Price</span>{{ review.price }}</td>
+        <td>
+          <p-tag
+            [value]="review.status"
+            [severity]="getSeverity(review.status)"
+          ></p-tag>
+        </td>
+        <td>
+          <span class="p-column-title">Reviews</span
+          ><p-rating
+            [ngModel]="review.rating"
+            [readonly]="true"
+            [cancel]="false"
+          ></p-rating>
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-warning mr-2"
+            (click)="editReview(review)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deleteReview(review)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <app-review-form
+    *ngIf="showDialog"
+    [showDialog]="showDialog"
+    [header]="dialogHeader"
+    [selectedReview]="selectedReview"
+    [reviewsCount]="reviewsCount"
+    (reviewSaved)="saveReview($event)"
+  ></app-review-form>
+</div>

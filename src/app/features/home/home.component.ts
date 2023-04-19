@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   activePromotions: Promotion[] = [];
 
   ngOnInit(): void {
-    this.featuredProductsList = (data as any).default;
+    this.featuredProductsList = (data as any).default.slice(0, 3);
     this.activePromotions = (promotionsData as any).default;
     this.activePromotions = this.activePromotions.filter(promotion => promotion.isActive === true);
   }

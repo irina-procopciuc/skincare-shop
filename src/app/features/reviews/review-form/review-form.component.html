@@ -1,0 +1,90 @@
+<form [formGroup]="reviewForm" (ngSubmit)="saveReview()">
+  <p-dialog
+    header="{{ header }}"
+    [(visible)]="showDialog"
+    [style]="{ width: '50vw' }"
+    [modal]="true"
+  >
+    <div class="form-field flex mb-4">
+      <label>Product name</label>
+      <p-dropdown
+        [options]="products"
+        (onChange)="selectProduct($event)"
+        formControlName="name"
+        optionLabel="title"
+      ></p-dropdown>
+    </div>
+    <div class="form-field flex mb-4">
+      <label>Brand</label>
+      <input [disabled]="true" type="text" pInputText formControlName="brand" />
+    </div>
+    <div class="form-field flex mb-4">
+      <label>Rating</label>
+      <div class="flex flex-column">
+        <p-rating formControlName="rating"></p-rating>
+        <small
+          *ngIf="
+            reviewForm.get('rating')?.invalid &&
+            (reviewForm.get('rating')?.dirty ||
+              reviewForm.get('rating')?.touched)
+          "
+          class="p-error mt-2 font-bold"
+          >Rating is required.</small
+        >
+      </div>
+    </div>
+    <div class="form-field flex mb-4">
+      <label>Description</label>
+      <div class="flex flex-column">
+        <input
+          [disabled]="true"
+          type="text"
+          pInputText
+          formControlName="description"
+        />
+        <small
+          *ngIf="
+            reviewForm.get('description')?.invalid &&
+            (reviewForm.get('description')?.dirty ||
+              reviewForm.get('description')?.touched)
+          "
+          class="p-error mt-2 font-bold"
+          >Description is required.</small
+        >
+      </div>
+    </div>
+    <div class="form-field flex mb-4">
+      <label>Price</label>
+      <input [disabled]="true" type="text" pInputText formControlName="price" />
+    </div>
+    <div class="form-field flex mb-4">
+      <label>Status</label>
+      <input
+        [disabled]="true"
+        type="text"
+        pInputText
+        formControlName="status"
+      />
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="flex justify-content-center align-items-center">
+        <button
+          [disabled]="reviewForm.invalid"
+          type="submit"
+          class="px-6"
+          pButton
+          pRipple
+          label="Save"
+        ></button>
+        <button
+          class="px-6"
+          pButton
+          pRipple
+          label="Cancel"
+          (click)="discardChanges()"
+        ></button>
+      </div>
+    </ng-template>
+  </p-dialog>
+</form>
