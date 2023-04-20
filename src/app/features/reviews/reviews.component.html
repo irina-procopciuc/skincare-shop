@@ -73,10 +73,11 @@
   </p-table>
   <app-review-form
     *ngIf="showDialog"
-    [showDialog]="showDialog"
     [header]="dialogHeader"
     [selectedReview]="selectedReview"
     [reviewsCount]="reviewsCount"
     (reviewSaved)="saveReview($event)"
   ></app-review-form>
+  <p-toast></p-toast>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
 </div>

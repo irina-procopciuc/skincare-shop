@@ -9,6 +9,7 @@
       <label>Product name</label>
       <p-dropdown
         [options]="products"
+        [disabled]="selectedReview ? true : false"
         (onChange)="selectProduct($event)"
         formControlName="name"
         optionLabel="title"

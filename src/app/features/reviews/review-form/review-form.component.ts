@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import * as data from '../../../api/products.json';
 import { Product } from 'src/app/shared/models/product';
 import { Review } from 'src/app/shared/models/review';
+import { ReviewService } from '../services/review.service';
 
 @Component({
   selector: 'app-review-form',
@@ -11,7 +12,6 @@ import { Review } from 'src/app/shared/models/review';
   styleUrls: ['./review-form.component.scss']
 })
 export class ReviewFormComponent implements OnInit, OnChanges{
-  @Input() showDialog: boolean | undefined;
   @Input() header = '';
   @Input() selectedReview: Review | undefined;
   @Input() reviewsCount: number | undefined;
@@ -19,18 +19,20 @@ export class ReviewFormComponent implements OnInit, OnChanges{
 
   reviewForm: FormGroup = new FormGroup('');
   products: Product[] = [];
+  showDialog?: boolean;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private reviewService: ReviewService
   ) {}
 
   ngOnInit(): void {
     this.initiateForm();
     this.checkIfSelectedReview();
+    this.reviewService.getShowDialog().subscribe(el => this.showDialog = el);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.showDialog = true;
     if(!this.reviewForm.controls) {
       this.initiateForm();
     }
@@ -50,7 +52,7 @@ export class ReviewFormComponent implements OnInit, OnChanges{
 
   discardChanges(): void {
     this.reviewForm.reset();
-    this.showDialog = false;
+    this.reviewService.hideDialog();
   }
 
   saveReview(): void {
@@ -65,8 +67,8 @@ export class ReviewFormComponent implements OnInit, OnChanges{
     }
     this.reviewSaved.emit(review);
     this.reviewForm.reset();
+    this.reviewService.hideDialog();
     setTimeout(() => {
-      this.showDialog = false;
     }, 100);
     this.header = '';
     this.selectedReview = undefined;
