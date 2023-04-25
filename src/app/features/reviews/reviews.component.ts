@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import data from '../../api/reviews.json';
@@ -10,7 +10,7 @@ import { ReviewService } from './services/review.service';
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.scss'],
 })
-export class ReviewsComponent implements OnInit {
+export class ReviewsComponent implements OnInit, OnDestroy {
   reviews: Review[] = [];
   showDialog?: boolean;
   dialogHeader = '';
@@ -25,6 +25,10 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initComponentData();
+  }
+
+  ngOnDestroy(): void {
+    this.reviewService.hideDialog();
   }
 
   saveReview(review: Review): void {
