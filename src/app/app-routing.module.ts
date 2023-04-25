@@ -1,43 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
+import { RoutesEnum } from './shared/enums/routes/routes.enum';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    redirectTo: RoutesEnum.HOME_ROUTE,
+    pathMatch: 'full',
   },
   {
-    path: 'home',
-    component: HomeComponent
+    path: RoutesEnum.HOME_ROUTE,
+    component: HomeComponent,
   },
   {
-    path: 'products',
+    path: RoutesEnum.PRODUCTS_ROUTE,
     loadChildren: () =>
-    import('./features/product-list/product-list.component').then(
-      (m) => m.ProductListModule
-    )
+      import('./features/product-list/product-list.module').then(
+        (m) => m.ProductListModule
+      ),
   },
   {
-    path: 'reviews',
+    path: RoutesEnum.REVIEWS_ROUTE,
     loadChildren: () =>
-    import('./features/reviews/reviews.component').then(
-      (m) => m.ReviewsModule
-    )
+      import('./features/reviews/reviews.module').then(
+        (m) => m.ReviewsModule
+      ),
   },
   {
-    path: 'account',
+    path: RoutesEnum.ACCOUNT_ROUTE,
     loadChildren: () =>
-    import('./features/account/account.component').then(
-      (m) => m.AccountModule
-    )
-  }
+      import('./features/account/account.module').then(
+        (m) => m.AccountModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,6 +1,6 @@
 <form [formGroup]="reviewForm" (ngSubmit)="saveReview()">
   <p-dialog
-    header="{{ header }}"
+    header="{{header }}"
     [(visible)]="showDialog"
     [style]="{ width: '50vw' }"
     [modal]="true"
@@ -70,21 +70,17 @@
 
     <ng-template pTemplate="footer">
       <div class="flex justify-content-center align-items-center">
-        <button
+        <p-button
           [disabled]="reviewForm.invalid"
+          styleClass="p-button-help"
           type="submit"
-          class="px-6"
-          pButton
-          pRipple
           label="Save"
-        ></button>
-        <button
-          class="px-6"
-          pButton
-          pRipple
+        ></p-button>
+        <p-button
           label="Cancel"
+          styleClass="p-button-danger"
           (click)="discardChanges()"
-        ></button>
+        ></p-button>
       </div>
     </ng-template>
   </p-dialog>

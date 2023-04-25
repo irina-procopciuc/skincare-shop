@@ -42,8 +42,8 @@
 <!-- to do -->
 <section class="promotions">
   <h2>Special Promotions</h2>
-  <div class="promotion-list flex">
-    <div *ngFor="let promotion of activePromotions" class="promotion-item">
+  <div class="promotion-list flex flex-wrap">
+    <div *ngFor="let promotion of activePromotions" class="promotion-item mt-2">
       <img src="../../../assets/promotions.png" alt="Promotion Image" />
       <h3>{{ promotion.name }}</h3>
       <p>{{ promotion.description }}</p>

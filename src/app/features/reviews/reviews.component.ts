@@ -1,13 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
-import * as data from '../../api/reviews.json';
+import { Component, OnInit } from '@angular/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
+
+import data from '../../api/reviews.json';
 import { Review } from 'src/app/shared/models/review';
-import { ReviewFormComponent } from './review-form/review-form.component';
 import { ReviewService } from './services/review.service';
-import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-reviews',
@@ -28,14 +24,12 @@ export class ReviewsComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.reviews = (data as any).default;
-    this.reviewsCount = this.reviews.length;
-    this.reviewService.getShowDialog().subscribe(el => this.showDialog = el);
+    this.initComponentData();
   }
 
   saveReview(review: Review): void {
-    if(this.reviews.find(el => el.id === review.id)) {
-      let index = this.reviews.findIndex(el => el.id === review.id);
+    if(this.reviews.find(listReview => listReview.id === review.id)) {
+      let index = this.reviews.findIndex(listReview => listReview.id === review.id);
       this.reviews[index] = review;
     } else {
       this.reviews.push(review);
@@ -55,7 +49,7 @@ export class ReviewsComponent implements OnInit {
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
-        const index= this.reviews.indexOf(this.reviews?.filter(el => el.id === review.id)[0]);
+        const index= this.reviews.indexOf(this.reviews?.filter(listReview => listReview.id === review.id)[0]);
         this.reviews.splice(index, 1);
         this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Review deleted' });
       }
@@ -79,22 +73,10 @@ export class ReviewsComponent implements OnInit {
         return 'success';
     }
   }
-}
 
-@NgModule({
-  declarations: [ReviewsComponent, ReviewFormComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    PrimengModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ReviewsComponent,
-      },
-    ]),
-  ],
-  exports: [ReviewsComponent],
-  providers: [ConfirmationService, MessageService]
-})
-export class ReviewsModule {}
+  private initComponentData(): void {
+    this.reviews = data;
+    this.reviewsCount = this.reviews.length;
+    this.reviewService.getShowDialog().subscribe(shouldShowDialog => this.showDialog = shouldShowDialog);
+  }
+}

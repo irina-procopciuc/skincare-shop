@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as data from '../../api/products.json';
-import * as promotionsData from '../../api/promotions.json';
+import data from '../../api/products.json';
+import promotionsData from '../../api/promotions.json';
 import { Product } from 'src/app/shared/models/product';
 import { Promotion } from 'src/app/shared/models/promotion';
 
@@ -14,8 +14,12 @@ export class HomeComponent implements OnInit {
   activePromotions: Promotion[] = [];
 
   ngOnInit(): void {
-    this.featuredProductsList = (data as any).default.slice(0, 3);
-    this.activePromotions = (promotionsData as any).default;
-    this.activePromotions = this.activePromotions.filter(promotion => promotion.isActive === true);
+    this.initHomepageLists();
+  }
+
+  private initHomepageLists(): void {
+    this.featuredProductsList = data?.slice(0, 3);
+    this.activePromotions = promotionsData;
+    this.activePromotions = this.activePromotions.filter(promotion => promotion.isActive);
   }
 }

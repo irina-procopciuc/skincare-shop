@@ -1,36 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { RoutesEnum } from 'src/app/shared/enums/routes/routes.enum';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit{
+export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
 
-ngOnInit(): void {
-  this.items = [
-    {
-      label: 'Home',
-      icon: 'pi pi-fw pi-home',
-      routerLink: 'home'
-    },
-    {
-      label: 'Products',
-      icon: 'pi pi-fw pi-gift',
-      routerLink: 'products'
-    },
-    {
-      label: 'Reviews',
-      icon: 'pi pi-fw pi-check',
-      routerLink: 'reviews'
-    },
-    {
-      label: 'Account',
-      icon: 'pi pi-fw pi-user',
-      routerLink: 'account'
-    }
-  ]
-}
+  ngOnInit(): void {
+    this.createMenuItems();
+  }
+
+  private createMenuItems(): void {
+    this.items = [
+      {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+        routerLink: RoutesEnum.HOME_ROUTE,
+      },
+      {
+        label: 'Products',
+        icon: 'pi pi-fw pi-gift',
+        routerLink: RoutesEnum.PRODUCTS_ROUTE,
+      },
+      {
+        label: 'Reviews',
+        icon: 'pi pi-fw pi-check',
+        routerLink: RoutesEnum.REVIEWS_ROUTE,
+      },
+      {
+        label: 'Account',
+        icon: 'pi pi-fw pi-user',
+        routerLink: RoutesEnum.ACCOUNT_ROUTE,
+      },
+    ];
+  }
 }

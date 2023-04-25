@@ -29,7 +29,7 @@ export class ReviewFormComponent implements OnInit, OnChanges{
   ngOnInit(): void {
     this.initiateForm();
     this.checkIfSelectedReview();
-    this.reviewService.getShowDialog().subscribe(el => this.showDialog = el);
+    this.reviewService.getShowDialog().subscribe(shouldShowDialog => this.showDialog = shouldShowDialog);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -68,8 +68,6 @@ export class ReviewFormComponent implements OnInit, OnChanges{
     this.reviewSaved.emit(review);
     this.reviewForm.reset();
     this.reviewService.hideDialog();
-    setTimeout(() => {
-    }, 100);
     this.header = '';
     this.selectedReview = undefined;
   }
@@ -84,19 +82,19 @@ export class ReviewFormComponent implements OnInit, OnChanges{
 
   private initiateForm(): void {
     this.reviewForm = this.fb.group({
-      name: new FormControl('', Validators.required),
-      brand: new FormControl({value: '', disabled: true}),
-      rating: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      price: new FormControl({value: '', disabled: true}),
-      status: new FormControl({value: '', disabled: true})
+      name: new FormControl<string | null>(null, Validators.required),
+      brand: new FormControl<string | null>({value: null, disabled: true}),
+      rating: new FormControl<string | null>(null, Validators.required),
+      description: new FormControl<string | null>(null, Validators.required),
+      price: new FormControl<string | null>({value: null, disabled: true}),
+      status: new FormControl<string | null>({value: null, disabled: true})
     });
 
   }
 
   private setReadonlyFields(review?: Review, isReviewInEditMode?: boolean) {
     this.products = (data as any).default;
-    this.selectProduct({value: review ?  this.products.filter(el => el.title === review?.name)[0] :this.products[0]}, isReviewInEditMode)
+    this.selectProduct({value: review ?  this.products.filter(listProduct => listProduct.title === review?.name)[0] :this.products[0]}, isReviewInEditMode)
   }
 
   private returnStatus(value: number): string {
