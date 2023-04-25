@@ -26,9 +26,6 @@ jobs:
       - name: Run Lint
         run: npm run lint
 
-      - name: Run Generate API
-        run: npm run generate:api
-
       - name: Run Build
         run: npm run build
 
