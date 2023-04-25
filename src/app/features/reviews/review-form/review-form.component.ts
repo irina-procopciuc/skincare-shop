@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import * as data from '../../../api/products.json';
+import data from '../../../api/products.json';
 import { Product } from 'src/app/shared/models/product';
 import { Review } from 'src/app/shared/models/review';
 import { ReviewService } from '../services/review.service';
@@ -32,7 +32,7 @@ export class ReviewFormComponent implements OnInit, OnChanges{
     this.reviewService.getShowDialog().subscribe(shouldShowDialog => this.showDialog = shouldShowDialog);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if(!this.reviewForm.controls) {
       this.initiateForm();
     }
@@ -93,7 +93,7 @@ export class ReviewFormComponent implements OnInit, OnChanges{
   }
 
   private setReadonlyFields(review?: Review, isReviewInEditMode?: boolean) {
-    this.products = (data as any).default;
+    this.products = data;
     this.selectProduct({value: review ?  this.products.filter(listProduct => listProduct.title === review?.name)[0] :this.products[0]}, isReviewInEditMode)
   }
 

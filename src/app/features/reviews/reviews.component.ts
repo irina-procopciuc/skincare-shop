@@ -13,7 +13,7 @@ import { ReviewService } from './services/review.service';
 export class ReviewsComponent implements OnInit {
   reviews: Review[] = [];
   showDialog?: boolean;
-  dialogHeader: string = '';
+  dialogHeader = '';
   selectedReview?: Review;
   reviewsCount?: number;
 
@@ -29,7 +29,7 @@ export class ReviewsComponent implements OnInit {
 
   saveReview(review: Review): void {
     if(this.reviews.find(listReview => listReview.id === review.id)) {
-      let index = this.reviews.findIndex(listReview => listReview.id === review.id);
+      const index = this.reviews.findIndex(listReview => listReview.id === review.id);
       this.reviews[index] = review;
     } else {
       this.reviews.push(review);
