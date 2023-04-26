@@ -1,0 +1,27 @@
+.product-details {
+  margin: 30px;
+  img {
+    width: 300px;
+    border: 1px solid grey;
+    border-radius: 10px;
+  }
+
+  .product-details-right-container {
+    margin-left: 20px;
+
+    h3 {
+      color: pink;
+    }
+
+    h4 {
+      color: purple;
+    }
+
+    ::ng-deep p-inputnumber {
+      width: 120px;
+      span, input {
+        width: 100%;
+      }
+    }
+  }
+}

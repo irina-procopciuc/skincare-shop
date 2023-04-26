@@ -31,10 +31,15 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-check',
         routerLink: RoutesEnum.REVIEWS_ROUTE,
       },
+      // {
+      //   label: 'Account',
+      //   icon: 'pi pi-fw pi-user',
+      //   routerLink: RoutesEnum.ACCOUNT_ROUTE,
+      // },
       {
-        label: 'Account',
-        icon: 'pi pi-fw pi-user',
-        routerLink: RoutesEnum.ACCOUNT_ROUTE,
+        label: 'Cart',
+        icon: 'pi pi-fw pi-shopping-cart',
+        routerLink: RoutesEnum.CART_ROUTE,
       },
     ];
   }

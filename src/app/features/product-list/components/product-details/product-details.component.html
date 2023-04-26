@@ -1,0 +1,38 @@
+<div class="product-details flex flex-column">
+  <div class="flex">
+    <img src="../../../../../assets/face-serum.avif" />
+    <div
+      class="product-details-right-container flex flex-column justify-content-between"
+    >
+      <div>
+        <h1>{{ selectedProduct?.title }}</h1>
+        <h4>{{ selectedProduct?.brand }}</h4>
+        <h3>{{ selectedProduct?.price }} lei</h3>
+        <h5>{{ selectedProduct?.description }}</h5>
+      </div>
+      <div class="add-to-cart">
+        <p-inputNumber
+          [(ngModel)]="selectedQuantity"
+          [showButtons]="true"
+          [min]="1"
+          spinnerMode="vertical"
+          inputId="vertical"
+          decrementButtonClass="p-button-primary"
+          incrementButtonClass="p-button-primary"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+        ></p-inputNumber>
+        <p-button
+          label="Add to cart"
+          icon="pi pi-plus"
+          [style]="{ 'margin-left': '.5em' }"
+          (onClick)="addProductToCart()"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+  <p-panel header="Details" class="product-details">
+    <p>{{ selectedProduct?.details }}</p>
+  </p-panel>
+  <p-toast></p-toast>
+</div>

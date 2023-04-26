@@ -1,0 +1,59 @@
+<div class="mt-2">
+  <p-table
+    [value]="cartProducts"
+    [breakpoint]="'960px'"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    responsiveLayout="stack"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Remove</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cartProduct let-columns="columns">
+      <tr>
+        <td>
+          <span class="p-column-title">Name</span
+          >{{ cartProduct.brand + " " + cartProduct.title }}
+        </td>
+        <td>
+          <span class="p-column-title">Quantity</span
+          ><p-inputNumber
+            [(ngModel)]="cartProduct.cartQuantity"
+            [showButtons]="true"
+            [min]="1"
+            spinnerMode="vertical"
+            inputId="vertical"
+            decrementButtonClass="p-button-primary"
+            incrementButtonClass="p-button-primary"
+            incrementButtonIcon="pi pi-plus"
+            decrementButtonIcon="pi pi-minus"
+          ></p-inputNumber>
+        </td>
+        <td>
+          <span class="p-column-title">Price</span
+          >{{ cartProduct.price * cartProduct.cartQuantity }}
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-times"
+            class="p-button-rounded p-button-danger"
+            (click)="removeCartProduct(cartProduct)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="4" class="py-4">No products added yet</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-toast></p-toast>
+  <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
+</div>

@@ -27,19 +27,22 @@
             label="Details"
             icon="pi pi-eye"
             styleClass="p-button-help"
+            (onClick)="openProductDetails(product)"
           ></p-button>
           <p-button
             label="Add to cart"
             icon="pi pi-plus"
             [style]="{ 'margin-left': '.5em' }"
+            (onClick)="addProductToCart(product)"
           ></p-button>
           </div>
         </ng-template>
       </p-card>
     </div>
   </div>
+  <p-toast></p-toast>
 </section>
-<!-- to do -->
+
 <section class="promotions">
   <h2>Special Promotions</h2>
   <div class="promotion-list flex flex-wrap">

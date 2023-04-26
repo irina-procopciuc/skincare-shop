@@ -27,13 +27,20 @@ const routes: Routes = [
         (m) => m.ReviewsModule
       ),
   },
+  // {
+  //   path: RoutesEnum.ACCOUNT_ROUTE,
+  //   loadChildren: () =>
+  //     import('./features/account/account.module').then(
+  //       (m) => m.AccountModule
+  //     ),
+  // },
   {
-    path: RoutesEnum.ACCOUNT_ROUTE,
+    path: RoutesEnum.CART_ROUTE,
     loadChildren: () =>
-      import('./features/account/account.module').then(
-        (m) => m.AccountModule
+      import('./features/cart/cart.module').then(
+        (m) => m.CartModule
       ),
-  },
+  }
 ];
 
 @NgModule({

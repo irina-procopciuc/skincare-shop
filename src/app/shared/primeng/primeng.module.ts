@@ -11,6 +11,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
 import { TagModule } from 'primeng/tag';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { PanelModule } from 'primeng/panel';
 
 const importsExports: (typeof PaginatorModule)[] = [
   MenubarModule,
@@ -23,7 +25,9 @@ const importsExports: (typeof PaginatorModule)[] = [
   ConfirmDialogModule,
   DialogModule,
   DropdownModule,
-  InputTextModule
+  InputTextModule,
+  InputNumberModule,
+  PanelModule
 ];
 
 @NgModule({

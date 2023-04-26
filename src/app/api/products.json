@@ -3,6 +3,7 @@
     "id": 1,
     "title": "HA serum",
     "description": "Hydrating face serum",
+    "details": "NATURAL & SAFE INGREDIENTS: Isntree hyaluronic acid aqua gel is formulated with 5 types of hyaluronic acid. Non-irritating, natural ingredients provide all day and night long moisturization. Argan oil protects skin and helps to restore moisture and oil-balance on skin. The hydrating formula will be absorbed in seconds without tackiness.",
     "price": 200,
     "discountPercentage": 12.96,
     "rating": 4.69,
@@ -15,6 +16,7 @@
     "id": 2,
     "title": "Aqua gel cream",
     "description": "Hydrating gel cream",
+    "details": "NATURAL & SAFE INGREDIENTS: Isntree hyaluronic acid aqua gel is formulated with 5 types of hyaluronic acid. Non-irritating, natural ingredients provide all day and night long moisturization. Argan oil protects skin and helps to restore moisture and oil-balance on skin. The hydrating formula will be absorbed in seconds without tackiness.",
     "price": 150,
     "discountPercentage": 12.96,
     "rating": 4.7,
@@ -27,6 +29,7 @@
     "id": 3,
     "title": "Eye cream",
     "description": "Eye cream with retinol",
+    "details": "NATURAL & SAFE INGREDIENTS: Isntree hyaluronic acid aqua gel is formulated with 5 types of hyaluronic acid. Non-irritating, natural ingredients provide all day and night long moisturization. Argan oil protects skin and helps to restore moisture and oil-balance on skin. The hydrating formula will be absorbed in seconds without tackiness.",
     "price": 100,
     "discountPercentage": 12.96,
     "rating": 4.69,
@@ -36,9 +39,10 @@
     "image": "src/assets/face-serum.avif"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Makeup remover",
     "description": "Radiance cleansing balm",
+    "details": "NATURAL & SAFE INGREDIENTS: Isntree hyaluronic acid aqua gel is formulated with 5 types of hyaluronic acid. Non-irritating, natural ingredients provide all day and night long moisturization. Argan oil protects skin and helps to restore moisture and oil-balance on skin. The hydrating formula will be absorbed in seconds without tackiness.",
     "price": 85,
     "discountPercentage": 0,
     "rating": 5,
@@ -48,9 +52,10 @@
     "image": "src/assets/face-serum.avif"
   },
   {
-    "id": 3,
+    "id": 5,
     "title": "Toner",
     "description": "Hydrating mist",
+    "details": "NATURAL & SAFE INGREDIENTS: Isntree hyaluronic acid aqua gel is formulated with 5 types of hyaluronic acid. Non-irritating, natural ingredients provide all day and night long moisturization. Argan oil protects skin and helps to restore moisture and oil-balance on skin. The hydrating formula will be absorbed in seconds without tackiness.",
     "price": 45,
     "discountPercentage": 0,
     "rating": 4.5,
