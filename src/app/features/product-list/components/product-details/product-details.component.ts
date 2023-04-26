@@ -30,14 +30,14 @@ export class ProductDetailsComponent implements OnInit {
 
   setSelectedProduct(): void {
     this.productsList = data;
-    this.selectedProductId = this.route.snapshot.paramMap.get('id');
+    this.selectedProductId = this.route.snapshot.paramMap?.get('id');
     this.selectedProduct = this.productsList.filter(
       (product) => product.id === Number(this.selectedProductId)
     )[0];
   }
 
   addProductToCart(): void {
-    let cartProduct: CartProduct = {
+    const cartProduct: CartProduct = {
       ...this.selectedProduct,
       cartQuantity: Number(this.selectedQuantity),
     };

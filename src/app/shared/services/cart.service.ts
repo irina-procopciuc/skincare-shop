@@ -10,12 +10,11 @@ export class CartService {
     CartProduct[]
   >([]);
 
-  constructor() {}
 
   addToCart(cartProduct: CartProduct): void {
     const currentValue = this.cartProducts$.value;
     let updatedValue;
-    let productAlreadyInCart = currentValue.find(
+    const productAlreadyInCart = currentValue.find(
       (currentValueProduct) => currentValueProduct.id === cartProduct.id
     );
     if (productAlreadyInCart) {
@@ -33,7 +32,7 @@ export class CartService {
 
   removeFromCart(cartProduct: CartProduct): void {
     const currentValue = this.cartProducts$.value;
-    let productInCartIndex = currentValue.indexOf(cartProduct);
+    const productInCartIndex = currentValue.indexOf(cartProduct);
     currentValue.splice(productInCartIndex, 1);
     this.cartProducts$.next(currentValue);
   }
